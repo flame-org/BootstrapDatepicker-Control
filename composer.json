@@ -3,6 +3,7 @@
     "description":"Datepicker for nette bootstrap form renderer",
     "keywords":["datepicker", "nette", "kdyby", "forms", "bootstrap", "flame"],
     "homepage":"https://github.com/flame-org/BootstrapDatepicker-Control",
+    "license": "BSD-2-Clause-FreeBSD",
     "authors":[
         {
             "name":"Michael Remis"
