@@ -11,7 +11,6 @@
 namespace Flame\Forms\Controls;
 
 class BootstrapDatePicker extends \Nette\Forms\Controls\BaseControl
-
 {
 	/** Range validator */
 	const DATE_RANGE = ':dateRange';
@@ -75,7 +74,6 @@ class BootstrapDatePicker extends \Nette\Forms\Controls\BaseControl
 	 * @param string $format
 	 * @param string $language
 	 * @param null $label
-	 *
 	 */
 	public function __construct($format = self::W3C_DATE_FORMAT, $language=self::DEFAULT_LANGUAGE	, $label = null)
 	{
@@ -277,7 +275,7 @@ class BootstrapDatePicker extends \Nette\Forms\Controls\BaseControl
 	/**
 	 * Generates control's HTML element.
 	 *
-	 * @return   \Nette\Web\Html
+	 * @return \Nette\Utils\Html
 	 */
 	public function getControl()
 	{
@@ -334,17 +332,13 @@ class BootstrapDatePicker extends \Nette\Forms\Controls\BaseControl
 		} elseif (is_string($value)) {
 			$rawValue = $value;
 
-			if (preg_match('#^(?P<dd>\d{1,2})[. -] *(?P<mm>\d{1,2})([. -] *(?P<yyyy>\d{4})?)?$#', $value, $matches)) {
-				$dd = $matches['dd'];
-				$mm = $matches['mm'];
-				$yyyy = isset($matches['yyyy']) ? $matches['yyyy'] : date('Y');
-
-				if (checkdate($mm, $dd, $yyyy)) {
-					$value = "$yyyy-$mm-$dd";
-				} else {
-					$value = null;
-				}
+			$value = \DateTime::createFromFormat($this->toPhpFormat($this->format), $value);
+			if($value){
+				$value->format('Y-m-d');
+			}else{
+				$value = null;
 			}
+
 
 		} else {
 			throw new \InvalidArgumentException();
