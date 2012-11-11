@@ -56,7 +56,7 @@ class BootstrapDatePicker extends \Nette\Forms\Controls\BaseControl
 	private $keyboardNavigation = true;
 
 	/** @var     number					Today button mode */
-	private $todayButton = self::TODAY_BUTTON_TRUE;
+	private $todayButton = self::TODAY_BUTTON_FALSE;
 
 	/** @var     number					Startview mode */
 	private $startview = self::STARTVIEW_MONTH;
