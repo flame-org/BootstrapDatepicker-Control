@@ -28,13 +28,13 @@ Translantions can be downloaded from https://github.com/lichtner/bootstrap-datep
 		});
 
 ######3) Add extension method to all form (date format and languge are set globally)
-
+```php
 		\Flame\Forms\Controls\BootstrapDatePicker::register();
-
+```
 **Default values ('yyyy-mm-dd', 'en', 'addDatePicker')**
 
 ### Full example of usage
-
+```php
 		$form->addDatePicker('date', "Date")
 		->setClassName('myBetterClass')//'bootstrapDatePicker' defalt
 		->setAutoclose(true)//false default
@@ -50,14 +50,14 @@ Translantions can be downloaded from https://github.com/lichtner/bootstrap-datep
 			\Flame\Forms\Controls\BootstrapDatePicker::DATE_RANGE,
 			'Entered date is not within allowed range.',
 			array(new DateTime('2012-10-02'),	null));
-
+```
 Alternatively you can use
-
+```php
 	  ->addRule(
 			Flame\Forms\Controls\BootstrapDatePicker::DATE_RANGE,
 			'Entered date is not within allowed range.',
 			array(new DateTime('2012-10-02'), null));
-
+```
 to set only calendar minimum (or only maximum).
 Datepicker will show only applicable dates. Value is checked on submit by javascript and then by php on server side.
 
